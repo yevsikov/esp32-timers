@@ -1,8 +1,8 @@
 #include <Arduino.h>
-#define LED_PIN 5
+#define RELAY_PIN 5
 
-constexpr uint32_t PERIOD = 20;      // для тестування (20 секунд)
-constexpr uint32_t WORK_TIME = 5;    // працює 5 секунди
+constexpr uint32_t PERIOD = 20;      // for testing (20 seconds)
+constexpr uint32_t WORK_TIME = 5;    // work 5 seconds
 
 hw_timer_t* timer = nullptr;
 
@@ -15,7 +15,7 @@ void IRAM_ATTR onTimer() {
 
 void setup() {
     Serial.begin(115200);
-    pinMode(LED_PIN, OUTPUT);
+    pinMode(RELAY_PIN, OUTPUT);
 
     timer = timerBegin(1000000);
     timerAttachInterrupt(timer, &onTimer);
@@ -29,10 +29,10 @@ void loop() {
     seconds++;
 
     if ((seconds % PERIOD) < WORK_TIME) {
-      digitalWrite(LED_PIN, HIGH);
+      digitalWrite(RELAY_PIN, HIGH);
       Serial.println("Fan ON");
     } else {
-      digitalWrite(LED_PIN, LOW);
+      digitalWrite(RELAY_PIN, LOW);
       Serial.println("Fan OFF");
     }
   }
