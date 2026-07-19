@@ -22,3 +22,18 @@ void setup() {
     timerAlarm(timer, 1000000, true, 0);
 }
 
+
+void loop() {
+  if (secondTick) {
+    secondTick = false;
+    seconds++;
+
+    if ((seconds % PERIOD) < WORK_TIME) {
+      digitalWrite(LED_PIN, HIGH);
+      Serial.println("Fan ON");
+    } else {
+      digitalWrite(LED_PIN, LOW);
+      Serial.println("Fan OFF");
+    }
+  }
+}
