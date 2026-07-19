@@ -18,8 +18,8 @@ GND     |-------------| GND                 |
                       └──┬─────┬───────┬────┘
                          |     |
                          |     |
-         +3.3V ----------┘     |
- (External power source)       |
+         +3.3V ----------┘     |                      LED Indicator
+ (External power source)       +--------------------------|>|----------[R220Om]------GND
                                |
                            ┌───┴────────────────┐
                            | MOTOR   with FAN   |
